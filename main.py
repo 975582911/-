@@ -119,14 +119,14 @@ def get_app_token(login_token):
     return app_token
     
 # 推送server
-def push_wx(sckey, desp=""):
+def push_wx(Sendkey, desp=""):
     """
     推送消息到微信
     """
-    if sckey == '':
-        print("[注意] 未提供sckey，不进行推送！")
+    if Sendkey == '':
+        print("[注意] 未提供Sendkey，不进行推送！")
     else:
-        server_url = f"https://sc.ftqq.com/{sckey}.send"
+        server_url = f"https://sctapi.ftqq.com/{Sendkey}.send"
         params = {
             "text": '小米运动 步数修改',
             "desp": desp
@@ -142,9 +142,9 @@ def push_wx(sckey, desp=""):
 
 if __name__ ==  "__main__":
     # ServerChan
-    sckey = input()
-    if str(sckey) == '0':
-        sckey = ''
+    Sendkey = input()
+    if str(Sendkey) == '0':
+        Sendkey = ''
     # 用户名（格式为 13800138000）
     user = input()
     # 登录密码
@@ -164,7 +164,7 @@ if __name__ ==  "__main__":
             elif str(step) == '0':
                 step = ''
             push += main(user_list[line], passwd_list[line], step) + '\n'
-        push_wx(sckey, push)
+        push_wx(Sendkey, push)
     else:
         print('用户名和密码数量不对')
     

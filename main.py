@@ -135,10 +135,10 @@ def push_wx(Sendkey, desp=""):
         response = requests.get(server_url, params=params)
         json_data = response.json()
  
-        if json_data['errno'] == 0:
+        if json_data['code'] == 0:
             print(f"[{now}] 推送成功。")
         else:
-            print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
+            print(f"[{now}] 推送失败：{json_data['code']}({json_data['message']})")
 
 if __name__ ==  "__main__":
     # ServerChan
